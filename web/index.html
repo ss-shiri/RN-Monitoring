@@ -150,8 +150,9 @@ let FAC = [];
 let curFac = null, curScn = null, layerPlume = null, layerZones = [], marker = null, ring = null;
 
 const map = L.map('map',{zoomControl:true}).setView([32.4,53.0],5);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
-  attribution:'© OpenStreetMap, © CARTO', maxZoom:18
+// OpenStreetMap standard tiles: no API key required.
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  attribution:'© OpenStreetMap contributors', maxZoom:19
 }).addTo(map);
 
 function t(k){return (I18N[LANG][k]!==undefined)?I18N[LANG][k]:k;}
@@ -269,19 +270,27 @@ function drawPlume(f, scn, wx, stab){
   const fp = computeFootprint({
     lat0:f.lat, lon0:f.lon, windDirFrom:wx.windDir, windSpeed:wx.windSpeed,
     stability:stab, releaseHeight:scn.height_m||f.default_release_height_m,
-    maxRangeKm:Math.min(maxRangeKm,120)
+    maxRangeKm:Math.min(maxRangeKm,120), grid:120
   });
   const g=L.layerGroup();
+  const hex={red:"#d7263d",orange:"#f46036",yellow:"#f4c20d",green:"#3fa34d"};
+  const op ={red:0.6,orange:0.5,yellow:0.4,green:0.28};
+  const b=L.latLngBounds([[f.lat,f.lon]]);
   if(fp.peak>0){
+    // Marker radius scales with the sample spacing so points merge into a
+    // continuous filled candle-flame shape rather than scattered dots.
+    const r = fp.cellRadiusPx || 5;
     fp.points.forEach(p=>{
       const n=p.value/fp.peak;
       const c=zoneColor(n); if(!c)return;
-      const hex={red:"#d7263d",orange:"#f46036",yellow:"#f4c20d",green:"#3fa34d"}[c];
-      const op={red:0.55,orange:0.40,yellow:0.28,green:0.16}[c];
-      L.circleMarker([p.lat,p.lon],{radius:3.5,stroke:false,fillColor:hex,fillOpacity:op}).addTo(g);
+      L.circleMarker([p.lat,p.lon],{radius:r,stroke:false,fillColor:hex[c],fillOpacity:op[c]}).addTo(g);
+      b.extend([p.lat,p.lon]);
     });
   }
   g.addTo(map); layerPlume=g;
+  // Fit map to show both the facility and the whole plume.
+  layerZones.forEach(z=>b.extend(z.getBounds()));
+  if(b.isValid()) map.fitBounds(b.pad(0.12));
 }
 
 function showWeather(wx, stab){
