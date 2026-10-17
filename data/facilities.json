@@ -1,0 +1,321 @@
+{
+  "_meta": {
+    "schema_version": "1.0",
+    "title": "Iran nuclear and radiological facility inventory",
+    "title_fa": "فهرست تأسیسات هسته‌ای و رادیولوژیک ایران",
+    "purpose": "Civilian emergency planning and public awareness. NOT an operational warning system.",
+    "purpose_fa": "برنامه‌ریزی اضطراری غیرنظامی و آگاهی عمومی. سامانه‌ی هشدار عملیاتی نیست.",
+    "compiled_utc": "2026-10-17",
+    "evidence_grades": {
+      "A": "Verified: primary records, IAEA documents, peer-reviewed, verified imagery",
+      "B": "Corroborated: multiple independent sources",
+      "C": "Secondary: quality reporting traceable to primary",
+      "D": "Unconfirmed: single indicator only",
+      "E": "Inference from facility type",
+      "F": "Hypothesis",
+      "G": "Speculation"
+    },
+    "hazard_types": {
+      "radiological_long": "Radiological, potentially long-range (volatile fission products: I-131, Cs-137, noble gases)",
+      "radiological_local": "Radiological, limited to near-field (small inventory)",
+      "chemical_local": "Chemical, local (UF6 -> HF + uranyl fluoride, heavy, deposits fast)",
+      "low_unknown": "Low or undocumented inventory"
+    },
+    "source_term_note": "Source-term scenarios are NORMALIZED and ILLUSTRATIVE for sensitivity analysis. They are NOT predictions of actual release. Ordered most-confident (S1) to least (S5). Release fractions are generic screening values from published accident literature, not facility-specific damage states.",
+    "source_term_note_fa": "سناریوهای چشمه نرمال‌شده و صرفاً برای تحلیل حساسیت‌اند، نه پیش‌بینی انتشار واقعی. از مطمئن‌تر (S1) به کم‌اطمینان‌تر (S5) مرتب شده‌اند."
+  },
+  "facilities": [
+    {
+      "id": "bushehr",
+      "name_en": "Bushehr Nuclear Power Plant (BNPP)",
+      "name_fa": "نیروگاه اتمی بوشهر",
+      "aliases": ["BNPP", "Bushehr-1"],
+      "category_en": "Nuclear power plant (operating)",
+      "category_fa": "نیروگاه قدرت (فعال)",
+      "province_en": "Bushehr",
+      "province_fa": "بوشهر",
+      "lat": 28.8297,
+      "lon": 50.8918,
+      "coord_uncertainty_km": 1,
+      "coord_source": "Public mapping, IAEA PRIS",
+      "status_en": "Operational, ~1000 MWe VVER-1000",
+      "status_fa": "فعال، حدود ۱۰۰۰ مگاوات، نوع VVER-1000",
+      "status_date": "2026-06",
+      "reactor_type": "VVER-1000 (Russian PWR)",
+      "hazard_type": "radiological_long",
+      "evidence_grade": "A",
+      "why": "Only operating power reactor in Iran. Large active fuel inventory with volatile fission products. IAEA DG Grossi has repeatedly identified Bushehr as the Iranian site where an attack would have the most serious radiological consequences.",
+      "why_fa": "تنها رآکتور قدرت فعال ایران با موجودی بزرگ محصولات شکافت فرار. گروسی بارها بوشهر را خطرناک‌ترین سایت در صورت حمله خوانده است.",
+      "nearby_receptors": [
+        {"name_en": "Halileh / Bandargeh villages", "name_fa": "هلیله و بندرگاه", "dist_km": 3, "bearing_deg": 320},
+        {"name_en": "Bushehr city", "name_fa": "شهر بوشهر", "dist_km": 17, "bearing_deg": 315, "pop": 223504},
+        {"name_en": "Borazjan", "name_fa": "برازجان", "dist_km": 58, "bearing_deg": 32},
+        {"name_en": "Genaveh", "name_fa": "گناوه", "dist_km": 90, "bearing_deg": 336},
+        {"name_en": "Shiraz", "name_fa": "شیراز", "dist_km": 180, "bearing_deg": 62, "pop": 1565572},
+        {"name_en": "Manama (Bahrain)", "name_fa": "منامه", "dist_km": 290, "bearing_deg": 186},
+        {"name_en": "Dammam (Saudi Arabia)", "name_fa": "دمام", "dist_km": 277, "bearing_deg": 196}
+      ],
+      "planning_zones_km": {"PAZ": 5, "UPZ": 30, "EPD": 100, "ICPD": 300},
+      "default_release_height_m": 30,
+      "source_terms": [
+        {"id": "S1", "label_en": "Minor leak, filtered", "label_fa": "نشت جزئی فیلترشده", "confidence": "higher", "grade": "E", "rel_fraction": 0.0001, "height_m": 30, "note_en": "Small containment leak, filters intact"},
+        {"id": "S2", "label_en": "Moderate venting", "label_fa": "تخلیه‌ی متوسط", "confidence": "moderate", "grade": "E", "rel_fraction": 0.001, "height_m": 30},
+        {"id": "S3", "label_en": "Significant release", "label_fa": "انتشار قابل توجه", "confidence": "moderate", "grade": "F", "rel_fraction": 0.01, "height_m": 50},
+        {"id": "S4", "label_en": "Severe, partial containment loss", "label_fa": "شدید، نقص جزئی مهار", "confidence": "lower", "grade": "F", "rel_fraction": 0.05, "height_m": 60},
+        {"id": "S5", "label_en": "Major, loss of containment", "label_fa": "بزرگ، فقدان مهار", "confidence": "lowest", "grade": "G", "rel_fraction": 0.1, "height_m": 80, "note_en": "Bounding case for planning only"}
+      ],
+      "sources": [
+        {"title": "IAEA PRIS - Bushehr", "url": "https://pris.iaea.org/pris/", "org": "IAEA", "grade": "A"},
+        {"title": "Grossi: direct hit could result in very high release", "url": "https://www.newarab.com/news/iaea-warns-nuclear-disaster-if-israel-attacks-irans-bushehr", "org": "The New Arab / AFP", "date": "2025", "grade": "C"}
+      ],
+      "gaps_en": "Current core state, exact fuel burnup, and real damage state are not public. Official Iranian national emergency zone radii not located in public sources.",
+      "gaps_fa": "وضعیت فعلی قلب رآکتور و شعاع رسمی زون‌های ملی ایران در منابع عمومی یافت نشد."
+    },
+    {
+      "id": "tehran_trr",
+      "name_en": "Tehran Research Reactor (Amirabad)",
+      "name_fa": "رآکتور تحقیقاتی تهران (امیرآباد)",
+      "aliases": ["TRR", "Amirabad", "مرکز امیرآباد"],
+      "category_en": "Research reactor",
+      "category_fa": "رآکتور تحقیقاتی",
+      "province_en": "Tehran",
+      "province_fa": "تهران",
+      "lat": 35.7389,
+      "lon": 51.3889,
+      "coord_uncertainty_km": 1,
+      "coord_source": "Public mapping, Tehran Nuclear Research Center",
+      "status_en": "Operational, 5 MW pool-type, in dense urban area",
+      "status_fa": "فعال، نوع استخری ۵ مگاوات، در بافت شهری متراکم",
+      "status_date": "2026",
+      "reactor_type": "5 MW pool-type (HEU origin, converted toward LEU)",
+      "hazard_type": "radiological_local",
+      "evidence_grade": "B",
+      "why": "Small thermal power means a modest radionuclide inventory, so consequences are mostly near-field. The dominant risk factor is location: extremely dense surrounding population in central Tehran.",
+      "why_fa": "توان حرارتی کم یعنی موجودی رادیونوکلئیدی کوچک و پیامد عمدتاً نزدیک‌میدان. عامل خطر غالب، جمعیت بسیار متراکم اطراف در مرکز تهران است.",
+      "nearby_receptors": [
+        {"name_en": "Central Tehran (dense residential)", "name_fa": "مرکز تهران", "dist_km": 1, "bearing_deg": 180, "pop": 8693706},
+        {"name_en": "Rey", "name_fa": "ری", "dist_km": 15, "bearing_deg": 200},
+        {"name_en": "Karaj", "name_fa": "کرج", "dist_km": 45, "bearing_deg": 290}
+      ],
+      "planning_zones_km": {"PAZ": 0.5, "UPZ": 5, "EPD": 25, "ICPD": 50},
+      "default_release_height_m": 10,
+      "source_terms": [
+        {"id": "S1", "label_en": "Contained incident", "label_fa": "رخداد مهارشده", "confidence": "higher", "grade": "E", "rel_fraction": 0.00001, "height_m": 10},
+        {"id": "S2", "label_en": "Fuel handling release", "label_fa": "انتشار حین جابجایی سوخت", "confidence": "moderate", "grade": "E", "rel_fraction": 0.0001, "height_m": 10},
+        {"id": "S3", "label_en": "Pool loss event", "label_fa": "رخداد افت آب استخر", "confidence": "moderate", "grade": "F", "rel_fraction": 0.001, "height_m": 10},
+        {"id": "S4", "label_en": "Partial fuel damage", "label_fa": "آسیب جزئی سوخت", "confidence": "lower", "grade": "F", "rel_fraction": 0.01, "height_m": 15},
+        {"id": "S5", "label_en": "Major fuel damage", "label_fa": "آسیب عمده‌ی سوخت", "confidence": "lowest", "grade": "G", "rel_fraction": 0.05, "height_m": 20, "note_en": "Bounding; small absolute inventory limits far-field"}
+      ],
+      "sources": [
+        {"title": "IAEA Research Reactor Database", "url": "https://nucleus.iaea.org/RRDB/", "org": "IAEA", "grade": "A"}
+      ],
+      "gaps_en": "Current fuel loading and inventory not public. Note small inventory bounds far-field consequences regardless of release fraction.",
+      "gaps_fa": "بارگذاری فعلی سوخت عمومی نیست. موجودی کوچک، پیامد دوربرد را محدود می‌کند."
+    },
+    {
+      "id": "natanz",
+      "name_en": "Natanz Fuel Enrichment Plant",
+      "name_fa": "تأسیسات غنی‌سازی نطنز",
+      "aliases": ["FEP", "PFEP", "Natanz"],
+      "category_en": "Uranium enrichment",
+      "category_fa": "غنی‌سازی اورانیوم",
+      "province_en": "Isfahan",
+      "province_fa": "اصفهان",
+      "lat": 33.7244,
+      "lon": 51.7269,
+      "coord_uncertainty_km": 2,
+      "coord_source": "Public satellite analysis",
+      "status_en": "Enrichment site, damaged in 2026 strikes per IAEA",
+      "status_fa": "سایت غنی‌سازی، بر اساس IAEA در حملات ۲۰۲۶ آسیب دید",
+      "status_date": "2026-03",
+      "reactor_type": null,
+      "hazard_type": "chemical_local",
+      "evidence_grade": "A",
+      "why": "Enrichment, not a reactor. The hazard is chemical: UF6 released to air reacts with moisture to form hydrogen fluoride (HF) and uranyl fluoride. These are heavy, toxic, and deposit relatively quickly. IAEA noted possible radiological AND chemical contamination INSIDE Natanz after strikes, but normal radiation OUTSIDE the perimeter. Potassium iodide is useless here.",
+      "why_fa": "غنی‌سازی است نه رآکتور. خطر شیمیایی است: UF6 در هوا با رطوبت به HF و اورانیل فلوراید تبدیل می‌شود؛ سنگین، سمی و با ته‌نشینی سریع. IAEA آلودگی احتمالی داخل نطنز را مطرح کرد اما تابش بیرون محیط عادی بود. قرص ید بی‌فایده است.",
+      "nearby_receptors": [
+        {"name_en": "Natanz town", "name_fa": "نطنز", "dist_km": 12, "bearing_deg": 20},
+        {"name_en": "Kashan", "name_fa": "کاشان", "dist_km": 45, "bearing_deg": 345},
+        {"name_en": "Isfahan", "name_fa": "اصفهان", "dist_km": 75, "bearing_deg": 170, "pop": 1961260},
+        {"name_en": "Qom", "name_fa": "قم", "dist_km": 100, "bearing_deg": 330}
+      ],
+      "planning_zones_km": {"IMMEDIATE": 3, "MONITOR": 10, "ASSESS": 30},
+      "default_release_height_m": 10,
+      "source_terms": [
+        {"id": "S1", "label_en": "Small UF6 leak", "label_fa": "نشت کوچک UF6", "confidence": "higher", "grade": "E", "rel_fraction": 0.001, "height_m": 5, "note_en": "Chemical plume, sub-km"},
+        {"id": "S2", "label_en": "Cylinder breach", "label_fa": "شکست سیلندر", "confidence": "moderate", "grade": "E", "rel_fraction": 0.01, "height_m": 5},
+        {"id": "S3", "label_en": "Multiple cylinder release", "label_fa": "انتشار چند سیلندر", "confidence": "moderate", "grade": "F", "rel_fraction": 0.05, "height_m": 10},
+        {"id": "S4", "label_en": "Fire-driven dispersal", "label_fa": "پخش ناشی از آتش", "confidence": "lower", "grade": "F", "rel_fraction": 0.1, "height_m": 20},
+        {"id": "S5", "label_en": "Large chemical release", "label_fa": "انتشار شیمیایی بزرگ", "confidence": "lowest", "grade": "G", "rel_fraction": 0.3, "height_m": 30, "note_en": "Bounding chemical, NOT long-range radiological"}
+      ],
+      "sources": [
+        {"title": "AP: IAEA warns of possible contamination inside Natanz", "url": "https://whdh.com/news/un-nuclear-agency-warns-of-possible-contamination-inside-irans-natanz-site-after-israeli-strikes/", "org": "AP", "date": "2026", "grade": "C"},
+        {"title": "ISIS analysis of IAEA Iran reports", "url": "https://isis-online.org/isis-reports/analysis-of-iaea-iran-verification-and-monitoring-and-npt-safeguards-reports-june-2026", "org": "ISIS", "date": "2026-06", "grade": "B"}
+      ],
+      "gaps_en": "Quantity of UF6 on site at any time is not public. Underground hall inventories unknown.",
+      "gaps_fa": "مقدار UF6 موجود در سایت عمومی نیست."
+    },
+    {
+      "id": "fordow",
+      "name_en": "Fordow Fuel Enrichment Plant",
+      "name_fa": "تأسیسات غنی‌سازی فردو",
+      "aliases": ["FFEP", "Fordow", "فردو"],
+      "category_en": "Uranium enrichment (underground)",
+      "category_fa": "غنی‌سازی اورانیوم (زیرزمینی)",
+      "province_en": "Qom",
+      "province_fa": "قم",
+      "lat": 34.8847,
+      "lon": 50.9956,
+      "coord_uncertainty_km": 2,
+      "coord_source": "Public satellite analysis",
+      "status_en": "Deep-underground enrichment, struck in June 2026",
+      "status_fa": "غنی‌سازی عمیق زیرزمینی، در ژوئن ۲۰۲۶ هدف قرار گرفت",
+      "status_date": "2026-06",
+      "reactor_type": null,
+      "hazard_type": "chemical_local",
+      "evidence_grade": "A",
+      "why": "Same hazard profile as Natanz: UF6 chemical release, local. Deep burial means much material is shielded by rock. Long-range radiological consequence is not supported by evidence.",
+      "why_fa": "پروفایل خطر مشابه نطنز: انتشار شیمیایی محلی UF6. عمق زیاد یعنی بخش زیادی از مواد زیر سنگ محافظت می‌شود. پیامد رادیولوژیک دوربرد بی‌پایه است.",
+      "nearby_receptors": [
+        {"name_en": "Qom", "name_fa": "قم", "dist_km": 30, "bearing_deg": 250, "pop": 1201158},
+        {"name_en": "Kashan", "name_fa": "کاشان", "dist_km": 70, "bearing_deg": 135},
+        {"name_en": "Tehran", "name_fa": "تهران", "dist_km": 120, "bearing_deg": 350}
+      ],
+      "planning_zones_km": {"IMMEDIATE": 3, "MONITOR": 10, "ASSESS": 30},
+      "default_release_height_m": 10,
+      "source_terms": [
+        {"id": "S1", "label_en": "Small UF6 leak", "label_fa": "نشت کوچک UF6", "confidence": "higher", "grade": "E", "rel_fraction": 0.001, "height_m": 5},
+        {"id": "S2", "label_en": "Cylinder breach", "label_fa": "شکست سیلندر", "confidence": "moderate", "grade": "E", "rel_fraction": 0.01, "height_m": 5},
+        {"id": "S3", "label_en": "Multiple cylinder release", "label_fa": "انتشار چند سیلندر", "confidence": "moderate", "grade": "F", "rel_fraction": 0.05, "height_m": 10},
+        {"id": "S4", "label_en": "Fire-driven dispersal", "label_fa": "پخش ناشی از آتش", "confidence": "lower", "grade": "F", "rel_fraction": 0.1, "height_m": 15},
+        {"id": "S5", "label_en": "Large chemical release", "label_fa": "انتشار شیمیایی بزرگ", "confidence": "lowest", "grade": "G", "rel_fraction": 0.2, "height_m": 25, "note_en": "Much material rock-shielded"}
+      ],
+      "sources": [
+        {"title": "ISIS analysis of IAEA Iran reports", "url": "https://isis-online.org/isis-reports/analysis-of-iaea-iran-verification-and-monitoring-and-npt-safeguards-reports-june-2026", "org": "ISIS", "date": "2026-06", "grade": "B"}
+      ],
+      "gaps_en": "Post-strike internal state and residual UF6 inventory not public.",
+      "gaps_fa": "وضعیت داخلی پس از حمله و موجودی باقی‌مانده‌ی UF6 عمومی نیست."
+    },
+    {
+      "id": "isfahan_unc",
+      "name_en": "Isfahan Nuclear Technology Center (UCF)",
+      "name_fa": "مرکز فناوری هسته‌ای اصفهان",
+      "aliases": ["UCF", "Esfahan", "Isfahan conversion"],
+      "category_en": "Uranium conversion and research",
+      "category_fa": "تبدیل اورانیوم و تحقیقات",
+      "province_en": "Isfahan",
+      "province_fa": "اصفهان",
+      "lat": 32.5733,
+      "lon": 51.8064,
+      "coord_uncertainty_km": 2,
+      "coord_source": "Public satellite analysis",
+      "status_en": "Conversion facility, 4 buildings damaged in 2026 per IAEA",
+      "status_fa": "تأسیسات تبدیل، بر اساس IAEA چهار ساختمان در ۲۰۲۶ آسیب دید",
+      "status_date": "2026",
+      "reactor_type": null,
+      "hazard_type": "chemical_local",
+      "evidence_grade": "A",
+      "why": "Uranium conversion handles UF6 and related compounds. Hazard is chemical and local, like the enrichment sites. Also hosts small research reactors with limited inventory. IAEA reported building damage but no external radiation rise.",
+      "why_fa": "تبدیل اورانیوم با UF6 و ترکیبات مرتبط سروکار دارد. خطر شیمیایی و محلی است. IAEA آسیب ساختمان‌ها را گزارش کرد اما افزایش تابش بیرونی نه.",
+      "nearby_receptors": [
+        {"name_en": "Isfahan city", "name_fa": "اصفهان", "dist_km": 15, "bearing_deg": 340, "pop": 1961260},
+        {"name_en": "Najafabad", "name_fa": "نجف‌آباد", "dist_km": 35, "bearing_deg": 300},
+        {"name_en": "Shahreza", "name_fa": "شهرضا", "dist_km": 50, "bearing_deg": 200}
+      ],
+      "planning_zones_km": {"IMMEDIATE": 3, "MONITOR": 10, "ASSESS": 30},
+      "default_release_height_m": 10,
+      "source_terms": [
+        {"id": "S1", "label_en": "Small chemical leak", "label_fa": "نشت شیمیایی کوچک", "confidence": "higher", "grade": "E", "rel_fraction": 0.001, "height_m": 5},
+        {"id": "S2", "label_en": "Process release", "label_fa": "انتشار فرآیندی", "confidence": "moderate", "grade": "E", "rel_fraction": 0.01, "height_m": 10},
+        {"id": "S3", "label_en": "Storage breach", "label_fa": "شکست انبار", "confidence": "moderate", "grade": "F", "rel_fraction": 0.05, "height_m": 10},
+        {"id": "S4", "label_en": "Fire-driven dispersal", "label_fa": "پخش ناشی از آتش", "confidence": "lower", "grade": "F", "rel_fraction": 0.1, "height_m": 20},
+        {"id": "S5", "label_en": "Large chemical release", "label_fa": "انتشار شیمیایی بزرگ", "confidence": "lowest", "grade": "G", "rel_fraction": 0.25, "height_m": 30}
+      ],
+      "sources": [
+        {"title": "AP: Isfahan uranium-conversion facility damaged", "url": "https://whdh.com/news/un-nuclear-agency-warns-of-possible-contamination-inside-irans-natanz-site-after-israeli-strikes/", "org": "AP", "date": "2026", "grade": "C"}
+      ],
+      "gaps_en": "Current chemical inventories not public.",
+      "gaps_fa": "موجودی شیمیایی فعلی عمومی نیست."
+    },
+    {
+      "id": "arak_khondab",
+      "name_en": "Arak / Khondab Heavy Water Reactor (IR-40)",
+      "name_fa": "رآکتور آب سنگین اراک / خنداب",
+      "aliases": ["IR-40", "Khondab", "Arak"],
+      "category_en": "Heavy water research reactor (not operational)",
+      "category_fa": "رآکتور تحقیقاتی آب سنگین (غیرفعال)",
+      "province_en": "Markazi",
+      "province_fa": "مرکزی",
+      "lat": 34.3739,
+      "lon": 49.2406,
+      "coord_uncertainty_km": 2,
+      "coord_source": "Public satellite analysis",
+      "status_en": "Not fueled / not operational; redesign under JCPOA",
+      "status_fa": "بدون سوخت / غیرفعال؛ بازطراحی‌شده",
+      "status_date": "2026",
+      "reactor_type": "IR-40 heavy water (not fueled)",
+      "hazard_type": "low_unknown",
+      "evidence_grade": "B",
+      "why": "Reactor was never fueled and is not operating, so there is no active fission-product inventory. Radiological release risk from the reactor itself is very low. Included for completeness and monitoring.",
+      "why_fa": "رآکتور هرگز سوخت‌گذاری نشد و فعال نیست، پس موجودی محصولات شکافت فعال ندارد. خطر انتشار بسیار پایین است. برای کامل بودن فهرست آمده است.",
+      "nearby_receptors": [
+        {"name_en": "Arak city", "name_fa": "اراک", "dist_km": 40, "bearing_deg": 210, "pop": 591756},
+        {"name_en": "Khondab", "name_fa": "خنداب", "dist_km": 10, "bearing_deg": 180}
+      ],
+      "planning_zones_km": {"IMMEDIATE": 2, "MONITOR": 10, "ASSESS": 25},
+      "default_release_height_m": 10,
+      "source_terms": [
+        {"id": "S1", "label_en": "No active inventory", "label_fa": "بدون موجودی فعال", "confidence": "higher", "grade": "B", "rel_fraction": 0.0, "height_m": 10, "note_en": "Not fueled; negligible radiological source"},
+        {"id": "S2", "label_en": "Minor contamination handling", "label_fa": "آلودگی جزئی حین کار", "confidence": "moderate", "grade": "E", "rel_fraction": 0.00001, "height_m": 10},
+        {"id": "S3", "label_en": "Localized dispersal", "label_fa": "پخش موضعی", "confidence": "lower", "grade": "F", "rel_fraction": 0.0001, "height_m": 10},
+        {"id": "S4", "label_en": "Hypothetical if fueled", "label_fa": "فرضی در صورت سوخت‌گذاری", "confidence": "lowest", "grade": "G", "rel_fraction": 0.001, "height_m": 15},
+        {"id": "S5", "label_en": "Bounding hypothetical", "label_fa": "حد بالای فرضی", "confidence": "lowest", "grade": "G", "rel_fraction": 0.01, "height_m": 20}
+      ],
+      "sources": [
+        {"title": "IAEA Iran verification reports", "url": "https://www.iaea.org/newscenter/focus/iran", "org": "IAEA", "grade": "A"}
+      ],
+      "gaps_en": "Current construction and fueling status not fully public.",
+      "gaps_fa": "وضعیت فعلی ساخت و سوخت‌گذاری کاملاً عمومی نیست."
+    },
+    {
+      "id": "pickaxe",
+      "name_en": "Pickaxe Mountain tunnel complex (near Natanz)",
+      "name_fa": "مجموعه‌ی تونلی کوه کلنگ (نزدیک نطنز)",
+      "aliases": ["Kuh-e Kolang Gazeleh", "Pickaxe Mountain", "کوه کلنگ"],
+      "category_en": "Undisclosed underground construction",
+      "category_fa": "ساخت‌وساز زیرزمینی اعلام‌نشده",
+      "province_en": "Isfahan",
+      "province_fa": "اصفهان",
+      "lat": 33.7486,
+      "lon": 51.7914,
+      "coord_uncertainty_km": 3,
+      "coord_source": "Commercial satellite imagery analysis (ISIS)",
+      "status_en": "Deep tunnel construction, purpose not officially confirmed",
+      "status_fa": "ساخت تونل عمیق، کاربرد رسماً تأیید نشده",
+      "status_date": "2026",
+      "reactor_type": null,
+      "hazard_type": "low_unknown",
+      "evidence_grade": "D",
+      "why": "CRITICAL GAP: no public, verified radiological inventory exists for this site. Tunneling is confirmed by imagery (grade B); function is assessed, not verified. If it is enrichment-related like Natanz, the hazard profile would be chemical and local (UF6), NOT long-range radiological. Drawing large reactor-style radiological zones here would be an analytic error and would manufacture unfounded fear.",
+      "why_fa": "شکاف بحرانی: هیچ موجودی رادیولوژیک تأییدشده‌ی عمومی برای این سایت وجود ندارد. تونل‌سازی با تصویر ماهواره‌ای تأیید شده (درجه B) اما کاربرد آن تنها ارزیابی شده است. اگر مانند نطنز به غنی‌سازی مربوط باشد، خطرش شیمیایی و محلی (UF6) است نه رادیولوژیک دوربرد. کشیدن زون‌های بزرگ رآکتوری اینجا خطای تحلیلی و ترس‌سازی بی‌پایه است.",
+      "nearby_receptors": [
+        {"name_en": "Natanz town", "name_fa": "نطنز", "dist_km": 8, "bearing_deg": 200},
+        {"name_en": "Kashan", "name_fa": "کاشان", "dist_km": 40, "bearing_deg": 345}
+      ],
+      "planning_zones_km": {"PRECAUTION": 5},
+      "default_release_height_m": 10,
+      "source_terms": [
+        {"id": "S1", "label_en": "No confirmed inventory", "label_fa": "بدون موجودی تأییدشده", "confidence": "higher", "grade": "D", "rel_fraction": 0.0, "height_m": 10, "note_en": "Insufficient data to model"},
+        {"id": "S2", "label_en": "If enrichment: small UF6", "label_fa": "اگر غنی‌سازی: UF6 کوچک", "confidence": "lower", "grade": "F", "rel_fraction": 0.001, "height_m": 5},
+        {"id": "S3", "label_en": "If enrichment: cylinder breach", "label_fa": "اگر غنی‌سازی: شکست سیلندر", "confidence": "lower", "grade": "F", "rel_fraction": 0.01, "height_m": 10},
+        {"id": "S4", "label_en": "Hypothetical chemical dispersal", "label_fa": "پخش شیمیایی فرضی", "confidence": "lowest", "grade": "G", "rel_fraction": 0.05, "height_m": 15},
+        {"id": "S5", "label_en": "Bounding hypothetical", "label_fa": "حد بالای فرضی", "confidence": "lowest", "grade": "G", "rel_fraction": 0.1, "height_m": 20, "note_en": "Pure hypothesis, no evidence"}
+      ],
+      "sources": [
+        {"title": "ISIS: Iran building tunnel complex near Natanz", "url": "https://isis-online.org/isis-reports/iran-building-massive-tunnel-complex-near-natanz", "org": "ISIS", "date": "2023", "grade": "B"}
+      ],
+      "gaps_en": "Function, contents, and any nuclear-material inventory are UNVERIFIED. All source terms beyond S1 are hypothetical.",
+      "gaps_fa": "کاربرد، محتوا و هرگونه موجودی مواد هسته‌ای راستی‌آزمایی نشده است. همه‌ی سناریوها بعد از S1 فرضی‌اند."
+    }
+  ]
+}
